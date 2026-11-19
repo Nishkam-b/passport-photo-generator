@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Passport Photo Maker by Nishtek – Free, Private, Print-ready</title>
+<meta name="description" content="Make passport, visa and form photos at home. AI background removal, auto face alignment, 4×6 and A4 print sheets and a KB compressor for online forms. Free, no watermark, and your photo never leaves your phone. By Nishkam Bhatia.">
+<meta name="author" content="Nishkam Bhatia">
+<meta name="theme-color" content="#F6F2E9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='6' width='52' height='52' rx='14' fill='%23FF6A13' stroke='%2317171C' stroke-width='4'/%3E%3Crect x='20' y='14' width='24' height='32' rx='3' fill='%23fff' stroke='%2317171C' stroke-width='3'/%3E%3Ccircle cx='32' cy='27' r='5' fill='%2317171C'/%3E%3Cpath d='M24 43c1-6 4-8 8-8s7 2 8 8' fill='%2317171C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Caveat:wght@600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="./" aria-label="Passport Photo Maker home">
+    <span class="logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64"><rect x="6" y="6" width="52" height="52" rx="14" fill="#FF6A13" stroke="#17171C" stroke-width="4"/><rect x="20" y="14" width="24" height="32" rx="3" fill="#fff" stroke="#17171C" stroke-width="3"/><circle cx="32" cy="27" r="5" fill="#17171C"/><path d="M24 43c1-6 4-8 8-8s7 2 8 8" fill="#17171C"/></svg>
+    </span>
+    <span class="brand-text"><b>Passport Photo Maker</b><small>by Nishtek</small></span>
+  </a>
+  <nav class="track" aria-label="Progress">
+    <button class="step is-active" data-step="upload"><span class="n">1</span><span class="l">Add photo</span></button>
+    <button class="step" data-step="edit" disabled><span class="n">2</span><span class="l">Fix &amp; fit</span></button>
+    <button class="step" data-step="download" disabled><span class="n">3</span><span class="l">Download</span></button>
+  </nav>
+  <span class="pill-private" title="Your photo is processed on your device and never uploaded"><span data-icon="shield"></span><span class="t">Stays on your phone</span></span>
+</header>
+
+<main>
+  <!-- HOME -->
+  <section id="step-upload" class="view is-visible">
+    <div class="home-hero">
+      <div class="home-copy">
+        <div class="tags"><span class="tag">Free</span><span class="tag">No sign-up</span><span class="tag">No watermark</span></div>
+        <h1>Passport photos,<br>made at <span class="mark">home.</span></h1>
+        <p class="lead">Take a selfie against any wall. The AI swaps the background, sizes your face to the official rules and gives you a sheet ready for the print shop.</p>
+
+        <div id="dropzone" class="upload-card" tabindex="0" role="button" aria-label="Add a photo">
+          <div class="uc-row">
+            <button id="btn-choose" class="btn btn-ink btn-lg"><span data-icon="upload"></span>Upload photo</button>
+            <button id="btn-camera" class="btn btn-line btn-lg"><span data-icon="camera"></span>Take selfie</button>
+          </div>
+          <p class="uc-hint">or drop / paste a photo here · JPG or PNG</p>
+          <input id="file-input" type="file" accept="image/*" hidden>
+          <input id="file-capture" type="file" accept="image/*" capture="user" hidden>
+        </div>
+        <p id="model-status" class="model-status"><span class="dot"></span><span class="txt">Warming up the AI on your device…</span></p>
+        <div class="works-for"><span>Sizes for</span><b>India</b><b>US</b><b>UK</b><b>Schengen</b><b>Canada</b><b>Australia</b><b>+ custom</b></div>
+      </div>
+      <div class="home-art" data-ill="hero"></div>
+    </div>
+
+    <section class="block">
+      <div class="block-head">
+        <h2>Get it right the <span class="mark mark-blue">first</span> time</h2>
+        <p class="hand">most rejections are one of these ↓</p>
+      </div>
+      <div class="examples" data-ill="examples"></div>
+    </section>
+
+    <section class="block">
+      <div class="block-head"><h2>How it works</h2></div>
+      <ol class="how">
+        <li class="how-card c-peach"><span class="how-n">01</span><span class="how-ic" data-icon="camera"></span><b>Add a photo</b><p>Any phone selfie in daylight. Stand a little away from the wall.</p></li>
+        <li class="how-card c-lilac"><span class="how-n">02</span><span class="how-ic" data-icon="wand"></span><b>AI fixes it</b><p>New background, face sized and straightened, checked against the rules.</p></li>
+        <li class="how-card c-mint"><span class="how-n">03</span><span class="how-ic" data-icon="printer"></span><b>Print or upload</b><p>8 photos on one 4×6 print for about ₹10, or a file for online forms.</p></li>
+      </ol>
+    </section>
+  </section>
+
+  <!-- STUDIO -->
+  <section id="step-edit" class="view">
+    <div class="studio">
+      <div class="canvas-card card">
+        <div class="cc-top">
+          <div class="cc-title"><b id="stage-title">India – Passport size photo</b><span id="stage-sub">35 × 45 mm</span></div>
+          <button id="check-chip" class="check-chip" type="button">Checking…</button>
+        </div>
+        <div id="stage" class="stage">
+          <canvas id="stage-canvas"></canvas>
+          <div id="stage-hint" class="stage-hint"><span data-icon="move"></span>Drag to move · pinch or scroll to zoom</div>
+        </div>
+        <div class="toolbar">
+          <label class="tb-slider"><span>Zoom</span><input type="range" id="zoom" min="40" max="250" value="100"></label>
+          <label class="tb-slider"><span>Straighten</span><input type="range" id="rotate" min="-150" max="150" value="0"></label>
+          <div class="tb-btns">
+            <button id="btn-autofit" class="btn btn-soft btn-sm" title="Auto-position face"><span data-icon="fit"></span>Auto-fit</button>
+            <button id="btn-rot90" class="btn btn-line btn-icon" title="Rotate photo 90°" aria-label="Rotate photo 90 degrees"><span data-icon="rotate"></span></button>
+            <label class="switch" title="Show guides"><input type="checkbox" id="toggle-guides" checked><span></span>Guides</label>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side">
+        <div class="card side-card">
+          <label class="lbl" for="preset-select"><span data-icon="ruler"></span>Photo size</label>
+          <select id="preset-select" class="select"></select>
+          <div id="custom-size" class="custom-size" hidden>
+            <label>W <input type="number" id="custom-w" min="10" max="150" step="0.5" value="35"> mm</label>
+            <label>H <input type="number" id="custom-h" min="10" max="150" step="0.5" value="45"> mm</label>
+          </div>
+          <ul id="preset-rules" class="rules"></ul>
+        </div>
+
+        <div class="card side-card">
+          <div class="tabs" role="tablist">
+            <button class="tab is-on" data-tab="bg" role="tab"><span data-icon="layers"></span>Background</button>
+            <button class="tab" data-tab="light" role="tab"><span data-icon="sun"></span>Light</button>
+          </div>
+          <div class="tab-panel is-on" data-panel="bg">
+            <div class="row-between">
+              <span class="muted small">Pick a colour</span>
+              <label class="switch"><input type="checkbox" id="toggle-bg" checked><span></span>Remove background</label>
+            </div>
+            <div id="swatches" class="swatches"></div>
+            <label class="slider"><span>Edge softness</span><input type="range" id="edge" min="0" max="100" value="35"></label>
+          </div>
+          <div class="tab-panel" data-panel="light">
+            <button id="btn-auto-light" class="btn btn-soft btn-sm btn-block"><span data-icon="wand"></span>Auto light</button>
+            <label class="slider"><span>Brightness</span><input type="range" id="adj-bright" min="-60" max="60" value="0"></label>
+            <label class="slider"><span>Contrast</span><input type="range" id="adj-contrast" min="-40" max="40" value="0"></label>
+            <label class="slider"><span>Colour</span><input type="range" id="adj-sat" min="-60" max="40" value="0"></label>
+            <label class="slider"><span>Warmth</span><input type="range" id="adj-warm" min="-30" max="30" value="0"></label>
+            <button id="btn-reset-adj" class="link-btn">Reset</button>
+          </div>
+        </div>
+
+        <div class="card side-card" id="check-card">
+          <p class="lbl"><span data-icon="check"></span>Photo check</p>
+          <ul id="checks" class="checks"></ul>
+          <p class="fineprint">A helper, not a guarantee. Rules change, so confirm with the official guidelines.</p>
+        </div>
+      </aside>
+    </div>
+    <div class="cta-bar">
+      <button class="btn btn-line" data-go="upload"><span data-icon="back"></span>New photo</button>
+      <button class="btn btn-ink btn-lg" data-go="download">Looks good, download<span data-icon="arrow"></span></button>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section id="step-download" class="view">
+    <div class="ready-head">
+      <h2>Your photos are <span class="mark">ready.</span></h2>
+      <p class="muted">Pick how you'll use them. Download as many times as you like.</p>
+    </div>
+    <div class="dl-grid">
+      <div class="card dl-card">
+        <div class="dl-head"><span class="dl-ic c-mint" data-icon="printer"></span><div><b>For printing</b><small>Take the file to any photo shop, or print at home.</small></div></div>
+        <div class="sheet-controls">
+          <select id="paper-select" class="select"></select>
+          <select id="copies-select" class="select"></select>
+        </div>
+        <div class="sheet-preview"><canvas id="sheet-canvas"></canvas></div>
+        <div class="row-between">
+          <p id="sheet-info" class="info-line"></p>
+          <label class="switch"><input type="checkbox" id="toggle-cut" checked><span></span>Cut lines</label>
+        </div>
+        <p class="note"><b>Tip:</b> when printing, choose <b>Actual size / 100%</b>, not "Fit to page".</p>
+        <div class="dl-actions">
+          <button id="btn-dl-sheet-pdf" class="btn btn-ink"><span data-icon="download"></span>PDF</button>
+          <button id="btn-dl-sheet-jpg" class="btn btn-line"><span data-icon="download"></span>JPG</button>
+        </div>
+      </div>
+
+      <div class="card dl-card">
+        <div class="dl-head"><span class="dl-ic c-sky" data-icon="globe"></span><div><b>For online forms</b><small>Visa portals, exam forms, job applications.</small></div></div>
+        <div class="single-preview"><canvas id="single-canvas"></canvas></div>
+        <div class="seg" role="radiogroup" aria-label="File format">
+          <button class="seg-btn is-on" data-fmt="jpg">JPG</button>
+          <button class="seg-btn" data-fmt="png">PNG</button>
+        </div>
+        <details class="form-mode" id="form-mode">
+          <summary>Form needs exact pixels or KB?</summary>
+          <div class="fm-body">
+            <div class="fm-row">
+              <label>Width <input type="number" id="px-w" min="50" max="4000"> px</label>
+              <label>Height <input type="number" id="px-h" min="50" max="4000"> px</label>
+            </div>
+            <div class="fm-row">
+              <label>Max <input type="number" id="kb-max" min="5" max="5000" placeholder="50"> KB</label>
+              <label>Min <input type="number" id="kb-min" min="0" max="5000" placeholder="–"> KB</label>
+            </div>
+            <div class="chips">
+              <button class="chip" data-kb="20-50">20–50 KB</button>
+              <button class="chip" data-kb="0-100">Under 100 KB</button>
+              <button class="chip" data-kb="0-200">Under 200 KB</button>
+              <button class="chip" data-px="reset">Reset</button>
+            </div>
+          </div>
+        </details>
+        <p id="single-info" class="info-line"></p>
+        <button id="btn-dl-single" class="btn btn-ink btn-block"><span data-icon="download"></span>Download photo</button>
+      </div>
+    </div>
+    <div class="cta-bar">
+      <button class="btn btn-line" data-go="edit"><span data-icon="back"></span>Back to edit</button>
+      <button class="btn btn-line" data-go="upload">Make another</button>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="credit">
+    <span class="credit-badge">Built by <b>Nishkam Bhatia</b></span>
+    <span class="credit-sub">Vibecoded using Claude</span>
+  </div>
+  <p class="foot-links">
+    <a href="https://www.instagram.com/nishkambhatia/" target="_blank" rel="noopener">Instagram @nishkambhatia</a>
+    <a href="https://www.youtube.com/@nishtek" target="_blank" rel="noopener">YouTube · Nishtek</a>
+  </p>
+  <p class="muted small">Your photo stays on your device. The AI runs inside your browser, nothing is uploaded or saved.</p>
+</footer>
+
+<div id="busy" class="overlay" hidden>
+  <div class="busy-card card">
+    <div data-ill="scan"></div>
+    <p id="busy-title">Working…</p>
+    <p id="busy-sub" class="muted small"></p>
+  </div>
+</div>
+
+<div id="camera" class="overlay cam" hidden>
+  <div class="cam-card">
+    <div class="cam-view">
+      <video id="cam-video" playsinline muted autoplay></video>
+      <svg class="cam-guide" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs><mask id="m"><rect width="300" height="400" fill="#fff"/><ellipse cx="150" cy="175" rx="82" ry="108" fill="#000"/></mask></defs>
+        <rect width="300" height="400" fill="rgba(23,23,28,.5)" mask="url(#m)"/>
+        <ellipse cx="150" cy="175" rx="82" ry="108" fill="none" stroke="#FF6A13" stroke-width="3" stroke-dasharray="8 7"/>
+      </svg>
+      <div id="cam-count" class="cam-count" hidden>3</div>
+      <p class="cam-tip">Face inside the oval · look straight · shoulders in view</p>
+    </div>
+    <div class="cam-actions">
+      <button id="cam-close" class="btn btn-ghost-dark">Cancel</button>
+      <button id="cam-shoot" class="shutter" aria-label="Take photo"><span></span></button>
+      <button id="cam-flip" class="btn btn-ghost-dark" title="Switch camera">Flip</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
